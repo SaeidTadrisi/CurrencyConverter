@@ -7,7 +7,7 @@ public class CurrencyConverterUI {
 
     public static void main (String ... args){
 
-        JFrame currencyConverter = new JFrame("Currency Converter");
+        JFrame currencyConverterFrame = new JFrame("Currency Converter");
 
         String [] currencyType = {"US Dollar", "Euro", "British Pound"};
 
@@ -36,41 +36,44 @@ public class CurrencyConverterUI {
         calculate.addActionListener(e -> {
                     firstAmount = firstCurrencyField.getText();
 
+            final CurrencyConverter currencyConverter = new CurrencyConverter();
+
             if (firstCurrency.equals(secondCurrency)) {
                         secondCurrencyField.setText(firstAmount);
                     }
                     if (firstCurrency.equals("US Dollar") && secondCurrency.equals("Euro")) {
-                        double result = Double.parseDouble(firstAmount) * 0.92;
-                        secondCurrencyField.setText(Double.toString(result));
+                        String result = currencyConverter.dollarToEuro(firstAmount);
+                        secondCurrencyField.setText(result);
                     }
                     if (firstCurrency.equals("US Dollar") && secondCurrency.equals("British Pound")) {
-                        double result = Double.parseDouble(firstAmount) * 0.80;
-                        secondCurrencyField.setText(Double.toString(result));
+                        String result = currencyConverter.dollarToPound(firstAmount);
+                        secondCurrencyField.setText(result);
                     }
                     if (firstCurrency.equals("Euro") && secondCurrency.equals("US Dollar")) {
-                        double result = Double.parseDouble(firstAmount) * 1.09;
-                        secondCurrencyField.setText(Double.toString(result));
+                        String result = currencyConverter.euroToDollar(firstAmount);
+                        secondCurrencyField.setText(result);
                     }
                     if (firstCurrency.equals("Euro") && secondCurrency.equals("British Pound")) {
-                        double result = Double.parseDouble(firstAmount) * 0.87;
-                        secondCurrencyField.setText(Double.toString(result));
+                        String result = currencyConverter.euroToPound(firstAmount);
+                        secondCurrencyField.setText(result);
                     }
                     if (firstCurrency.equals("British Pound") && secondCurrency.equals("US Dollar")) {
-                        double result = Double.parseDouble(firstAmount) * 1.80;
-                        secondCurrencyField.setText(Double.toString(result));
-                    }else if (firstCurrency.equals("British Pound") && secondCurrency.equals("Euro")) {
-                        double result = Double.parseDouble(firstAmount) * 1.87;
-                        secondCurrencyField.setText(Double.toString(result));
+                        String result = currencyConverter.poundToDollar(firstAmount);
+                        secondCurrencyField.setText(result);
+
+                    }if (firstCurrency.equals("British Pound") && secondCurrency.equals("Euro")) {
+                        String result = currencyConverter.poundToEuro(firstAmount);
+                        secondCurrencyField.setText(result);
                     }
                 });
 
-        currencyConverter.add(firstCurrencyList);
-        currencyConverter.add(secondCurrencyList);
-        currencyConverter.add(firstCurrencyField);
-        currencyConverter.add(secondCurrencyField);
-        currencyConverter.add(calculate);
-        currencyConverter.setLayout(null);
-        currencyConverter.setSize(315,220);
-        currencyConverter.setVisible(true);
+        currencyConverterFrame.add(firstCurrencyList);
+        currencyConverterFrame.add(secondCurrencyList);
+        currencyConverterFrame.add(firstCurrencyField);
+        currencyConverterFrame.add(secondCurrencyField);
+        currencyConverterFrame.add(calculate);
+        currencyConverterFrame.setLayout(null);
+        currencyConverterFrame.setSize(315,220);
+        currencyConverterFrame.setVisible(true);
     }
 }
