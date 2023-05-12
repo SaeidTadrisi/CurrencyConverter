@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.math.BigDecimal;
 
 public class CurrencyConverterUI {
     private static String firstAmount;

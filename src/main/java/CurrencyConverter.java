@@ -1,33 +1,36 @@
+import java.math.BigDecimal;
+
 public class CurrencyConverter {
 
     public String dollarToEuro (String amount){
-        double result = Double.parseDouble(amount) * 0.92;
-        return String.valueOf(result);
+
+        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
+        return String.valueOf(result.multiply(BigDecimal.valueOf(0.92)));
     }
 
     public String dollarToPound (String amount){
-        double result = Double.parseDouble(amount) * 0.8;
-        return String.valueOf(result);
+        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
+        return String.valueOf(result.multiply(BigDecimal.valueOf(0.80)));
     }
 
     public String euroToDollar (String amount){
-        double result = Double.parseDouble(amount) * 1.09;
-        return String.valueOf(result);
+        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
+        return String.valueOf(result.multiply(BigDecimal.valueOf(1.09)));
     }
 
     public String euroToPound (String amount){
-        double result = Double.parseDouble(amount) * 0.87;
-        return String.valueOf(result);
+        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
+        return String.valueOf(result.multiply(BigDecimal.valueOf(0.87)));
     }
 
     public String poundToDollar (String amount){
-        double result = Double.parseDouble(amount) * 1.8;
-        return String.valueOf(result);
+        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
+        return String.valueOf(result.multiply(BigDecimal.valueOf(1.80)));
     }
 
     public String poundToEuro (String amount){
-        double result = Double.parseDouble(amount) * 1.87;
-        return String.valueOf(result);
+        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
+        return String.valueOf(result.multiply(BigDecimal.valueOf(1.87)));
     }
 
 }
