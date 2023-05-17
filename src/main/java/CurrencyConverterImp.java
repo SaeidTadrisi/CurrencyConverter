@@ -1,13 +1,22 @@
 import java.math.BigDecimal;
 
+import static java.math.BigDecimal.*;
+
 public class CurrencyConverterImp implements CurrencyConverter {
+
+    public static final double dolToEu = 0.92;
+    public static final double dolToPou = 0.80;
+    public static final double eurToDol = 1.09;
+    public static final double eurToPou = 0.87;
+    public static final double pouToDol = 1.80;
+    public static final double pouToEur = 1.87;
 
     public String execute(String firstCurrency, String secondCurrency, String amount){
 
         String result = "";
 
         if (firstCurrency.equals(secondCurrency)){
-            BigDecimal bigDecimal = BigDecimal.valueOf(Double.parseDouble(amount));
+            BigDecimal bigDecimal = valueOf(Double.parseDouble(amount));
             result = String.valueOf(bigDecimal);
             }
         if (firstCurrency.equals("US Dollar") && secondCurrency.equals("Euro")){
@@ -33,33 +42,32 @@ public class CurrencyConverterImp implements CurrencyConverter {
 
     public String dollarToEuro (String amount){
 
-        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
-        return String.valueOf(result.multiply(BigDecimal.valueOf(0.92)));
+        return getString(amount, dolToEu);
     }
 
     public String dollarToPound (String amount){
-        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
-        return String.valueOf(result.multiply(BigDecimal.valueOf(0.80)));
+        return getString(amount, dolToPou);
     }
 
     public String euroToDollar (String amount){
-        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
-        return String.valueOf(result.multiply(BigDecimal.valueOf(1.09)));
+        return getString(amount, eurToDol);
     }
 
     public String euroToPound (String amount){
-        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
-        return String.valueOf(result.multiply(BigDecimal.valueOf(0.87)));
+        return getString(amount, eurToPou);
     }
 
     public String poundToDollar (String amount){
-        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
-        return String.valueOf(result.multiply(BigDecimal.valueOf(1.80)));
+        return getString(amount, pouToDol);
     }
 
     public String poundToEuro (String amount){
-        BigDecimal result = BigDecimal.valueOf(Double.parseDouble(amount));
-        return String.valueOf(result.multiply(BigDecimal.valueOf(1.87)));
+        return getString(amount, pouToEur);
+    }
+
+    private static String getString(String amount, double rate) {
+        BigDecimal result = valueOf(Double.parseDouble(amount));
+        return String.valueOf(result.multiply(valueOf(rate)));
     }
 
 }
