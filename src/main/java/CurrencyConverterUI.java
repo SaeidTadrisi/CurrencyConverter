@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.math.BigDecimal;
 
 public class CurrencyConverterUI {
     private static String firstAmount;
@@ -10,7 +9,7 @@ public class CurrencyConverterUI {
 
         JFrame currencyConverterFrame = new JFrame("Currency Converter");
 
-        String [] currencyType = {"US Dollar", "Euro", "British Pound"};
+        Currency currencies = new Currency();
 
         JTextField firstCurrencyField = new JTextField();
         firstCurrencyField.setBounds(10,10,120,30);
@@ -20,13 +19,14 @@ public class CurrencyConverterUI {
         secondCurrencyField.setBounds(170,10,120,30);
         secondCurrencyField.setEditable(false);
 
-        JComboBox firstCurrencyList = new JComboBox(currencyType);
+        JComboBox<String> firstCurrencyList = new JComboBox<>(currencies.currencyNames);
         firstCurrencyList.setBounds(10,50,120,30);
+
         firstCurrencyList.addActionListener(e -> {
             firstCurrency = (String) firstCurrencyList.getSelectedItem();
         });
 
-        JComboBox secondCurrencyList = new JComboBox(currencyType);
+        JComboBox<String> secondCurrencyList = new JComboBox<>(currencies.currencyNames);
         secondCurrencyList.setBounds(170,50,120,30);
         secondCurrencyList.addActionListener(e -> {
             secondCurrency = (String) secondCurrencyList.getSelectedItem();
@@ -35,39 +35,14 @@ public class CurrencyConverterUI {
         JButton calculate = new JButton("Calculate");
         calculate.setBounds(100,90,100,30);
         calculate.addActionListener(e -> {
-                    firstAmount = firstCurrencyField.getText();
-
-            final CurrencyConverter currencyConverter = new CurrencyConverter();
-
-            if (firstCurrency.equals(secondCurrency)) {
-                        secondCurrencyField.setText(firstAmount);
-                    }
-                    if (firstCurrency.equals("US Dollar") && secondCurrency.equals("Euro")) {
-                        String result = currencyConverter.dollarToEuro(firstAmount);
-                        secondCurrencyField.setText(result);
-                    }
-                    if (firstCurrency.equals("US Dollar") && secondCurrency.equals("British Pound")) {
-                        String result = currencyConverter.dollarToPound(firstAmount);
-                        secondCurrencyField.setText(result);
-                    }
-                    if (firstCurrency.equals("Euro") && secondCurrency.equals("US Dollar")) {
-                        String result = currencyConverter.euroToDollar(firstAmount);
-                        secondCurrencyField.setText(result);
-                    }
-                    if (firstCurrency.equals("Euro") && secondCurrency.equals("British Pound")) {
-                        String result = currencyConverter.euroToPound(firstAmount);
-                        secondCurrencyField.setText(result);
-                    }
-                    if (firstCurrency.equals("British Pound") && secondCurrency.equals("US Dollar")) {
-                        String result = currencyConverter.poundToDollar(firstAmount);
-                        secondCurrencyField.setText(result);
-
-                    }if (firstCurrency.equals("British Pound") && secondCurrency.equals("Euro")) {
-                        String result = currencyConverter.poundToEuro(firstAmount);
-                        secondCurrencyField.setText(result);
-                    }
+            firstAmount = firstCurrencyField.getText();
+            CurrencyConverter currencyConverter = new CurrencyConverterImp();
+            String result = currencyConverter.execute(firstCurrency, secondCurrency, firstAmount);
+            secondCurrencyField.setText(result);
                 });
 
+        firstCurrencyList.setSelectedIndex(0);
+        secondCurrencyList.setSelectedIndex(0);
         currencyConverterFrame.add(firstCurrencyList);
         currencyConverterFrame.add(secondCurrencyList);
         currencyConverterFrame.add(firstCurrencyField);
