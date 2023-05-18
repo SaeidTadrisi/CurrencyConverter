@@ -1,5 +1,4 @@
 import javax.swing.*;
-
 public class CurrencyConverterUI {
     private static String firstAmount;
     private static String firstCurrency;
@@ -37,9 +36,11 @@ public class CurrencyConverterUI {
         calculate.addActionListener(e -> {
             firstAmount = firstCurrencyField.getText();
             CurrencyConverter currencyConverter = new CurrencyConverterImp();
-            String result = currencyConverter.execute(firstCurrency, secondCurrency, firstAmount);
+            CurrencyRate currencyRate = new CurrencyRateImp();
+            String rate = currencyRate.getRate(firstCurrency, secondCurrency);
+            String result = currencyConverter.calculate(rate, firstAmount);
             secondCurrencyField.setText(result);
-                });
+        });
 
         firstCurrencyList.setSelectedIndex(0);
         secondCurrencyList.setSelectedIndex(0);
