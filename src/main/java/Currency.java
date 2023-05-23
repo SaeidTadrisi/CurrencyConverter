@@ -1,16 +1,189 @@
+import java.util.HashMap;
+import java.util.Map;
 
 public class Currency {
-    String [] currencyNames = {"FJD","MXN","STD","SCR","CDF","BBD","GTQ","CLP","HNL","UGX","ZAR",
-            "TND","STN","CUC","BSD","SLL","SDG","IQD","CUP","GMD","TWD","RSD","DOP","KMF","MYR",
-            "FKP","XOF","GEL","BTC","UYU","MAD","CVE","TOP","AZN","OMR","PGK","KES","SEK","CNH",
-            "BTN","UAH","GNF","ERN","MZN","SVC","ARS","QAR","IRR","XPD","CNY","THB","UZS","XPF",
-            "MRU","BDT","LYD","BMD","KWD","PHP","XPT","RUB","PYG","ISK","JMD","COP","MKD","USD",
-            "DZD","PAB","GGP","SGD","ETB","JEP","KGS","SOS","VUV","LAK","BND","XAF","LRD","XAG",
-            "CHF","HRK","ALL","DJF","VES","ZMW","TZS","VND","XAU","AUD","ILS","GHS","GYD","KPW",
-            "BOB","KHR","MDL","IDR","KYD","AMD","BWP","SHP","TRY","LBP","TJS","JOD","AED","HKD",
-            "RWF","EUR","LSL","DKK","CAD","BGN","MMK","MUR","NOK","SYP","IMP","ZWL","GIP","RON",
-            "LKR","NGN","CRC","CZK","PKR","XCD","ANG","HTG","BHD","KZT","SRD","SZL","SAR","TTD",
-            "YER","MVR","AFN","INR","AWG","KRW","NPR","JPY","MNT","AOA","PLN","GBP","SBD","BYN",
-            "HUF","BIF","MWK","MGA","XDR","BZD","BAM","EGP","MOP","NAD","SSP","NIO","PEN","NZD",
-            "WST","TMT","CLF","BRL"};
+    Map<String, String> currencyNames = new HashMap<>();
+    {
+        currencyNames.put("FJD", "Fijian Dollar");
+        currencyNames.put("MXN", "Mexican Peso");
+        currencyNames.put("STD", "São Tomé and Príncipe Dobra");
+        currencyNames.put("SCR", "Seychellois Rupee");
+        currencyNames.put("CDF", "Congolese Franc");
+        currencyNames.put("BBD", "Barbadian Dollar");
+        currencyNames.put("GTQ", "Guatemalan Quetzal");
+        currencyNames.put("CLP", "Chilean Peso");
+        currencyNames.put("HNL", "Honduran Lempira");
+        currencyNames.put("UGX", "Ugandan Shilling");
+        currencyNames.put("ZAR", "South African Rand");
+        currencyNames.put("TND", "Tunisian Dinar");
+        currencyNames.put("STN", "São Tomé and Príncipe Dobra");
+        currencyNames.put("CUC", "Cuban Convertible Peso");
+        currencyNames.put("BSD", "Bahamian Dollar");
+        currencyNames.put("SLL", "Sierra Leonean Leone");
+        currencyNames.put("SDG", "Sudanese Pound");
+        currencyNames.put("IQD", "Iraqi Dinar");
+        currencyNames.put("CUP", "Cuban Peso");
+        currencyNames.put("GMD", "Gambian Dalasi");
+        currencyNames.put("TWD", "New Taiwan Dollar");
+        currencyNames.put("RSD", "Serbian Dinar");
+        currencyNames.put("DOP", "Dominican Peso");
+        currencyNames.put("KMF", "Comorian Franc");
+        currencyNames.put("MYR", "Malaysian Ringgit");
+        currencyNames.put("FKP", "Falkland Islands Pound");
+        currencyNames.put("XOF", "West African CFA Franc");
+        currencyNames.put("GEL", "Georgian Lari");
+        currencyNames.put("BTC", "Bitcoin");
+        currencyNames.put("UYU", "Uruguayan Peso");
+        currencyNames.put("MAD", "Moroccan Dirham");
+        currencyNames.put("CVE", "Cape Verdean Escudo");
+        currencyNames.put("TOP", "Tongan Pa'anga");
+        currencyNames.put("AZN", "Azerbaijani Manat");
+        currencyNames.put("OMR", "Omani Rial");
+        currencyNames.put("PGK", "Papua New Guinean Kina");
+        currencyNames.put("KES", "Kenyan Shilling");
+        currencyNames.put("SEK", "Swedish Krona");
+        currencyNames.put("CNH", "Chinese Yuan (Offshore)");
+        currencyNames.put("BTN", "Bhutanese Ngultrum");
+        currencyNames.put("UAH", "Ukrainian Hryvnia");
+        currencyNames.put("GNF", "Guinean Franc");
+        currencyNames.put("ERN", "Eritrean Nakfa");
+        currencyNames.put("MZN", "Mozambican Metical");
+        currencyNames.put("SVC", "Salvadoran Colón");
+        currencyNames.put("ARS", "Argentine Peso");
+        currencyNames.put("QAR", "Qatari Riyal");
+        currencyNames.put("IRR", "Iranian Rial");
+        currencyNames.put("XPD", "Palladium Ounce");
+        currencyNames.put("CNY", "Chinese Yuan Renminbi");
+        currencyNames.put("THB", "Thai Baht");
+        currencyNames.put("UZS", "Uzbekistani Som");
+        currencyNames.put("XPF", "CFP Franc");
+        currencyNames.put("MRU", "Mauritanian Ouguiya");
+        currencyNames.put("BDT", "Bangladeshi Taka");
+        currencyNames.put("LYD", "Libyan Dinar");
+        currencyNames.put("BMD", "Bermudan Dollar");
+        currencyNames.put("KWD", "Kuwaiti Dinar");
+        currencyNames.put("PHP", "Philippine Peso");
+        currencyNames.put("XPT", "Platinum Ounce");
+        currencyNames.put("RUB", "Russian Ruble");
+        currencyNames.put("PYG", "Paraguayan Guarani");
+        currencyNames.put("ISK", "Icelandic Króna");
+        currencyNames.put("JMD", "Jamaican Dollar");
+        currencyNames.put("COP", "Colombian Peso");
+        currencyNames.put("MKD", "Macedonian Denar");
+        currencyNames.put("USD", "United States Dollar");
+        currencyNames.put("DZD", "Algerian Dinar");
+        currencyNames.put("PAB", "Panamanian Balboa");
+        currencyNames.put("GGP", "Guernsey Pound");
+        currencyNames.put("SGD", "Singapore Dollar");
+        currencyNames.put("ETB", "Ethiopian Birr");
+        currencyNames.put("JEP", "Jersey Pound");
+        currencyNames.put("KGS", "Kyrgyzstani Som");
+        currencyNames.put("SOS", "Somali Shilling");
+        currencyNames.put("VUV", "Vanuatu Vatu");
+        currencyNames.put("LAK", "Laotian Kip");
+        currencyNames.put("BND", "Brunei Dollar");
+        currencyNames.put("XAF", "Central African CFA Franc");
+        currencyNames.put("LRD", "Liberian Dollar");
+        currencyNames.put("XAG", "Silver Ounce");
+        currencyNames.put("CHF", "Swiss Franc");
+        currencyNames.put("HRK", "Croatian Kuna");
+        currencyNames.put("ALL", "Albanian Lek");
+        currencyNames.put("DJF", "Djiboutian Franc");
+        currencyNames.put("VES", "Venezuelan Bolívar");
+        currencyNames.put("ZMW", "Zambian Kwacha");
+        currencyNames.put("TZS", "Tanzanian Shilling");
+        currencyNames.put("VND", "Vietnamese Dong");
+        currencyNames.put("XAU", "Gold Ounce");
+        currencyNames.put("AUD", "Australian Dollar");
+        currencyNames.put("ILS", "Israeli Shekel");
+        currencyNames.put("GHS", "Ghanaian Cedi");
+        currencyNames.put("GYD", "Guyanese Dollar");
+        currencyNames.put("KPW", "North Korean Won");
+        currencyNames.put("BOB", "Bolivian Boliviano");
+        currencyNames.put("KHR", "Cambodian Riel");
+        currencyNames.put("MDL", "Moldovan Leu");
+        currencyNames.put("IDR", "Indonesian Rupiah");
+        currencyNames.put("KYD", "Cayman Islands Dollar");
+        currencyNames.put("AMD", "Armenian Dram");
+        currencyNames.put("BWP", "Botswana Pula");
+        currencyNames.put("SHP", "Saint Helena Pound");
+        currencyNames.put("TRY", "Turkish Lira");
+        currencyNames.put("LBP", "Lebanese Pound");
+        currencyNames.put("TJS", "Tajikistani Somoni");
+        currencyNames.put("JOD", "Jordanian Dinar");
+        currencyNames.put("AED", "United Arab Emirates Dirham");
+        currencyNames.put("HKD", "Hong Kong Dollar");
+        currencyNames.put("RWF", "Rwandan Franc");
+        currencyNames.put("EUR", "Euro");
+        currencyNames.put("LSL", "Lesotho Loti");
+        currencyNames.put("DKK", "Danish Krone");
+        currencyNames.put("CAD", "Canadian Dollar");
+        currencyNames.put("BGN", "Bulgarian Lev");
+        currencyNames.put("MMK", "Burmese Kyat");
+        currencyNames.put("MUR", "Mauritian Rupee");
+        currencyNames.put("NOK", "Norwegian Krone");
+        currencyNames.put("SYP", "Syrian Pound");
+        currencyNames.put("IMP", "Manx Pound");
+        currencyNames.put("ZWL", "Zimbabwean Dollar");
+        currencyNames.put("GIP", "Gibraltar Pound");
+        currencyNames.put("RON", "Romanian Leu");
+        currencyNames.put("LKR", "Sri Lankan Rupee");
+        currencyNames.put("NGN", "Nigerian Naira");
+        currencyNames.put("CRC", "Costa Rican Colón");
+        currencyNames.put("CZK", "Czech Koruna");
+        currencyNames.put("PKR", "Pakistani Rupee");
+        currencyNames.put("XCD", "East Caribbean Dollar");
+        currencyNames.put("ANG", "Netherlands Antillean Guilder");
+        currencyNames.put("HTG", "Haitian Gourde");
+        currencyNames.put("BHD", "Bahraini Dinar");
+        currencyNames.put("KZT", "Kazakhstani Tenge");
+        currencyNames.put("SRD", "Surinamese Dollar");
+        currencyNames.put("SZL", "Swazi Lilangeni");
+        currencyNames.put("SAR", "Saudi Riyal");
+        currencyNames.put("TTD", "Trinidad and Tobago Dollar");
+        currencyNames.put("YER", "Yemeni Rial");
+        currencyNames.put("MVR", "Maldivian Rufiyaa");
+        currencyNames.put("AFN", "Afghan Afghani");
+        currencyNames.put("INR", "Indian Rupee");
+        currencyNames.put("AWG", "Aruban Florin");
+        currencyNames.put("KRW", "South Korean Won");
+        currencyNames.put("NPR", "Nepalese Rupee");
+        currencyNames.put("JPY", "Japanese Yen");
+        currencyNames.put("MNT", "Mongolian Tögrög");
+        currencyNames.put("AOA", "Angolan Kwanza");
+        currencyNames.put("PLN", "Polish Złoty");
+        currencyNames.put("GBP", "British Pound Sterling");
+        currencyNames.put("SBD", "Solomon Islands Dollar");
+        currencyNames.put("BYN", "Belarusian Ruble");
+        currencyNames.put("HUF", "Hungarian Forint");
+        currencyNames.put("BIF", "Burundian Franc");
+        currencyNames.put("MWK", "Malawian Kwacha");
+        currencyNames.put("MGA", "Malagasy Ariary");
+        currencyNames.put("XDR", "Special Drawing Rights");
+        currencyNames.put("BZD", "Belize Dollar");
+        currencyNames.put("BAM", "Bosnia-Herzegovina Convertible Mark");
+        currencyNames.put("EGP", "Egyptian Pound");
+        currencyNames.put("MOP", "Macanese Pataca");
+        currencyNames.put("NAD", "Namibian Dollar");
+        currencyNames.put("SSP", "South Sudanese Pound");
+        currencyNames.put("NIO", "Nicaraguan Córdoba");
+        currencyNames.put("PEN", "Peruvian Sol");
+        currencyNames.put("NZD", "New Zealand Dollar");
+        currencyNames.put("WST", "Samoan Tala");
+        currencyNames.put("TMT", "Turkmenistan Manat");
+        currencyNames.put("CLF", "Chilean Unit of Account (UF)");
+        currencyNames.put("BRL", "Brazilian Real");
+    }
+    String[] names = currencyNames.values().toArray(new String[0]);
+
+    public String getKey(String value){
+        String key = null;
+        for (Map.Entry<String,String> entry : currencyNames.entrySet()){
+            if (entry.getValue().equals(value)){
+                key = entry.getKey();
+            }
+        }
+        return key;
+    }
+
 }

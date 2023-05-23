@@ -1,19 +1,33 @@
 import org.json.JSONObject;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Properties;
+
 public class CurrencyRateImp implements CurrencyRate {
-        private static final String API_KEY = "2a8413d556964a55ba7eb8679dc952fb";
-        private static final String BASE_URL = "https://openexchangerates.org/api/latest.json?app_id=" + API_KEY;
+        private String serverAddress;
         private static JSONObject currencyRates;
 
     @Override
     public String getRate(String firstCurrency, String secondCurrency) {
 
+        Currency currency = new Currency();
+        String firstKey = currency.getKey(firstCurrency);
+        String secondKey = currency.getKey(secondCurrency);
+
+        try (InputStream configFile = new FileInputStream("server-config.properties")) {
+            Properties properties = new Properties();
+            properties.load(configFile);
+            serverAddress = properties.get("address").toString();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         try {
-            URL url = new URL(BASE_URL);
+            URL url = new URL(serverAddress);
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -40,13 +54,13 @@ public class CurrencyRateImp implements CurrencyRate {
             }
 
             connection.disconnect();
-        } catch (Exception e) {
+        } catch (EmptyAmountException | IOException e) {
             e.printStackTrace();
         }
 
-        BigDecimal firstRate = currencyRates.getBigDecimal(firstCurrency);
-        BigDecimal secondRate = currencyRates.getBigDecimal(secondCurrency);
-        BigDecimal rate = firstRate.divide(secondRate, 4, BigDecimal.ROUND_HALF_UP);
+        BigDecimal firstRate = currencyRates.getBigDecimal(firstKey);
+        BigDecimal secondRate = currencyRates.getBigDecimal(secondKey);
+        BigDecimal rate = secondRate.divide(firstRate, 4, RoundingMode.HALF_UP);
         return rate.toString();
     }
 
