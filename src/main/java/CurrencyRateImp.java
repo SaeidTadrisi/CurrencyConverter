@@ -8,8 +8,7 @@ import java.net.URL;
 import java.util.Properties;
 
 public class CurrencyRateImp implements CurrencyRate {
-        private String serverAddress;
-        private static JSONObject currencyRates;
+    private static JSONObject currencyRates;
 
     @Override
     public String getRate(String firstCurrency, String secondCurrency) {
@@ -18,6 +17,7 @@ public class CurrencyRateImp implements CurrencyRate {
         String firstKey = currency.getKey(firstCurrency);
         String secondKey = currency.getKey(secondCurrency);
 
+        String serverAddress;
         try (InputStream configFile = new FileInputStream("server-config.properties")) {
             Properties properties = new Properties();
             properties.load(configFile);
@@ -63,6 +63,5 @@ public class CurrencyRateImp implements CurrencyRate {
         BigDecimal rate = secondRate.divide(firstRate, 4, RoundingMode.HALF_UP);
         return rate.toString();
     }
-
 }
 

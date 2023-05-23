@@ -34,7 +34,7 @@ public class CurrencyConverterUI {
         calculate.setBounds(170,90,100,30);
         calculate.addActionListener(e -> {
             firstAmount = firstCurrencyField.getText();
-            if (firstAmount == null || firstAmount.isEmpty()){
+            if (firstAmount.isEmpty()){
                 JOptionPane.showInternalMessageDialog(null, "Please Enter a Number");
             }else {
                 CurrencyConverter currencyConverter = new CurrencyConverterImp();
